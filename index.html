@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PECS Odontologia - Projeto Social</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #bcdaff;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.menu button {
+    width: 220px;
+    height: 100px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #75a4e0, #75a4e0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.menu button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 25px rgba(0,0,0,0.3);
+}
+
+
+.grid {
+    display: none;
+    margin-top: 20px;
+}
+
+.card {
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;   /* impede deformação */
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+
+.card p {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+#display {
+    margin-top: 40px;
+}
+
+#display img {
+    width: 450px;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+#display img:hover {
+    transform: scale(1.05);
+}
+
+#display h2 {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu button {
+        width: 90%;
+        height: 90px;
+        font-size: 18px;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #display img {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    #display h2 {
+        font-size: 28px;
+    }
+}
+
+
+
+/* Contador (contar até 10) styles */
+#contadorArea {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contadorArea img,
+#contadorImagem {
+    width: 500px; /* diminuir tamanho da imagem aqui */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+#contadorTexto {
+    font-size: 26px; /* tamanho do texto abaixo da imagem */
+    margin-top: 12px;
+    color: #333;
+}
+
+#contadorButtons {
+    display: flex;
+    flex-direction: column; /* empilha os botões verticalmente */
+    gap: 10px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+#btnProximo {
+    /* Destaque visual para o botão Próximo, mas reutiliza estilos existentes */
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#btnReiniciar {
+    background-color: #FF9800;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* botão Voltar usa a classe .voltar já definida acima */
+
+.voltar {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Comunicação Odontológica</h1>
+
+<div class="menu" id="menu">
+    <button onclick="mostrarTela('emocoes')">😊 Emoções</button>
+    <button onclick="mostrarTela('procedimentos')">🦷 Procedimentos</button>
+    <button onclick="mostrarTela('rotina')">📋 Rotina</button>
+    <button onclick="mostrarTela('contar')">🔢 Contar até 10</button>
+</div>
+
+<!-- EMOÇÕES -->
+<div class="grid" id="emocoes">
+
+    <div class="card" onclick="mostrarMensagem('Estou feliz', 'imagens/feliz.png')">
+        <img src="imagens/feliz.png">
+        <p>Feliz</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Estou com dor!', 'imagens/dor.png')">
+        <img src="imagens/dor.png">
+        <p>Com dor</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Estou com medo', 'imagens/medo.png')">
+        <img src="imagens/medo.png">
+        <p>Medo</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Parar!', 'imagens/parar.png')">
+        <img src="imagens/parar.png">
+        <p>Parar</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Estou tranquilo', 'imagens/tranquilo.png')">
+        <img src="imagens/tranquilo.png">
+        <p>Tranquilo</p>
+    </div>
+
+    <br>
+    <button class="voltar" onclick="voltar()">Voltar</button>
+</div>
+
+<!-- PROCEDIMENTOS -->
+<div class="grid" id="procedimentos">
+
+    <div class="card" onclick="mostrarMensagem('Abrir a boca', 'imagens/abrir_boca.png')">
+        <img src="imagens/abrir_boca.png">
+        <p>Abrir boca</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Escovar os dentes', 'imagens/escovar.png')">
+        <img src="imagens/escovar.png">
+        <p>Escovar</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Cadeira odontológica', 'imagens/cadeira.png')">
+        <img src="imagens/cadeira.png">
+        <p>Cadeira</p>
+    </div>
+
+    <br>
+    <button class="voltar" onclick="voltar()">Voltar</button>
+</div>
+
+<!-- ROTINA -->
+<div class="grid" id="rotina">
+
+    <div class="card" onclick="mostrarMensagem('Chegar na clínica', 'imagens/chegar_consultorio.png')">
+        <img src="imagens/chegar_consultorio.png">
+        <p>Chegar</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Sentar na cadeira', 'imagens/sentar_cadeira.png')">
+        <img src="imagens/sentar_cadeira.png">
+        <p>Sentar</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Abrir a boca!', 'imagens/abrir_boca.png')">
+        <img src="imagens/abrir_boca.png">
+        <p>Abrir a boca!</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Limpar!', 'imagens/limpar.png')">
+        <img src="imagens/limpar.png">
+        <p>Limpar</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Acabou!', 'imagens/acabou.png')">
+        <img src="imagens/acabou.png">
+        <p>Acabou</p>
+    </div>
+
+    <br>
+    <button class="voltar" onclick="voltar()">Voltar</button>
+</div>
+
+<!-- CONTAR ATÉ 10 -->
+<div class="grid" id="contar">
+
+    <div id="contadorArea">
+        <img id="contadorImagem" src="">
+        <h2 id="contadorTexto"></h2>
+
+        <div id="contadorButtons">
+            <button class="voltar" id="btnProximo" onclick="proximoNumero()">Próximo</button>
+            <button class="voltar" id="btnReiniciar" onclick="reiniciarContador()">Reiniciar</button>
+            <button class="voltar" onclick="voltar()">Voltar</button>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="display"></div>
+
+<script>
+function mostrarTela(tela) {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById(tela).style.display = "block";
+    document.getElementById("display").innerHTML = "";
+}
+
+function voltar() {
+    document.getElementById("menu").style.display = "block";
+    document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
+    document.getElementById("display").innerHTML = "";
+}
+
+function mostrarMensagem(texto, imagem) {
+    document.getElementById("display").innerHTML =
+        "<img src='" + imagem + "'><h2>" + texto + "</h2>";
+}
+
+</script>
+
+<script>
+
+let numeroAtual = 1;
+
+function mostrarTela(tela) {
+    document.getElementById("menu").style.display = "none";
+    document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
+    document.getElementById(tela).style.display = "block";
+    document.getElementById("display").innerHTML = "";
+
+    if (tela === "contar") {
+        numeroAtual = 1;
+        atualizarContador();
+    }
+}
+
+function atualizarContador() {
+    const imgEl = document.getElementById("contadorImagem");
+    const expectedSrc = "imagens/contar_" + numeroAtual + ".png";
+
+    // Tenta carregar a imagem externa (contar_1.png ... contar_10.png).
+    // Se falhar (não existir), usa um SVG gerado dinamicamente com o número.
+    const probe = new Image();
+    probe.onload = function() {
+        imgEl.src = expectedSrc;
+    };
+    probe.onerror = function() {
+        imgEl.src = gerarSVGNumeroDataURL(numeroAtual);
+    };
+    probe.src = expectedSrc;
+
+    document.getElementById("contadorTexto").innerText =
+        "Número " + numeroAtual;
+}
+
+// Gera um data URL de SVG com o número centralizado — usado como fallback
+function gerarSVGNumeroDataURL(n) {
+    const width = 400;
+    const height = 300;
+    const fontSize = 180;
+    const svg = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}'>` +
+        `<rect width='100%' height='100%' fill='#f4f9ff'/>` +
+        `<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' ` +
+        `font-family='Arial, sans-serif' font-size='${fontSize}' fill='#333'>${n}</text>` +
+        `</svg>`;
+
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+function proximoNumero() {
+    if (numeroAtual < 10) {
+        numeroAtual++;
+        atualizarContador();
+    }
+}
+
+function reiniciarContador() {
+    numeroAtual = 1;
+    atualizarContador();
+}
+
+function voltar() {
+    document.getElementById("menu").style.display = "block";
+    document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
+    document.getElementById("display").innerHTML = "";
+}
+
+</script>
+
+
+</body>
+</html>
