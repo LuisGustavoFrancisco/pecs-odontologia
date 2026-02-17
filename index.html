@@ -19,15 +19,15 @@ h1 {
     display: flex;
     flex-direction: column;   /* coloca um embaixo do outro */
     align-items: center;      /* centraliza */
-    gap: 25px;                /* espaço entre botões */
+    gap: 60px;                /* espaço entre botões */
     margin-top: 50px;
 }
 
 .menu button {
     width: 80%;               /* ocupa boa parte da tela */
     max-width: 400px;         /* não fica gigante no notebook */
-    height: 120px;            /* botão maior */
-    font-size: 22px;
+    height: 200px;            /* botão maior */
+    font-size: 40px;
     border-radius: 25px;
     border: none;
     cursor: pointer;
@@ -199,11 +199,12 @@ h1 {
 
 <body>
 
-<h1>Comunicação Odontológica</h1>
+<h1>COMUNICAÇÃO ODONTOLÓGICA</h1>
 
 <div class="menu" id="menu">
     <button onclick="mostrarTela('emocoes')">😊 Emoções</button>
     <button onclick="mostrarTela('procedimentos')">🦷 Procedimentos</button>
+    <button onclick="mostrarTela('instrumentos')">🪥 Instrumentos</button>
     <button onclick="mostrarTela('rotina')">📋 Rotina</button>
     <button onclick="mostrarTela('contar')">🔢 Contar até 10</button>
 </div>
@@ -256,6 +257,43 @@ h1 {
     <div class="card" onclick="mostrarMensagem('Cadeira odontológica', 'imagens/cadeira.png')">
         <img src="imagens/cadeira.png">
         <p>Cadeira</p>
+    </div> 
+
+    <br>
+    <button class="voltar" onclick="voltar()">Voltar</button>
+</div>
+
+<!-- INSTRUMENTOS -->
+<div class="grid" id="instrumentos">
+
+    <div class="card" onclick="mostrarMensagem('Fio dental', 'imagens/fio_dental.png')">
+        <img src="imagens/fio_dental.png">
+        <p>Fio dental</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Sugador', 'imagens/sugador.png')">
+        <img src="imagens/sugador.png">
+        <p>Sugador</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Raio-X', 'imagens/raio_x.png')">
+        <img src="imagens/raio_x.png">
+        <p>Raio-X</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Espelho', 'imagens/espelho.png')">
+        <img src="imagens/espelho.png">
+        <p>Espelho</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Motorzinho', 'imagens/motorzinho.png')">
+        <img src="imagens/motorzinho.png">
+        <p>Motorzinho</p>
+    </div>
+
+    <div class="card" onclick="mostrarMensagem('Escova e Pasta', 'imagens/escova_pasta.png')">
+        <img src="imagens/escova_pasta.png">
+        <p>Escova e Pasta</p>
     </div>
 
     <br>
