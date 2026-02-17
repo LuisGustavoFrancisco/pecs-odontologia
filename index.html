@@ -3,203 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>PECS Odontologia - Projeto Social</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #bcdaff;
-}
-
-h1 {
-    margin-top: 20px;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;   /* coloca um embaixo do outro */
-    align-items: center;      /* centraliza */
-    gap: 60px;                /* espaço entre botões */
-    margin-top: 50px;
-}
-
-.menu button {
-    width: 80%;               /* ocupa boa parte da tela */
-    max-width: 400px;         /* não fica gigante no notebook */
-    height: 200px;            /* botão maior */
-    font-size: 40px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(135deg, #75a4e0, #75a4e0);
-    color: white;
-    font-weight: bold;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-}
-
-.menu button:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 12px 25px rgba(0,0,0,0.3);
-}
-
-
-
-.grid {
-    display: none;
-    margin-top: 20px;
-}
-
-.card {
-    display: inline-block;
-    margin: 15px;
-    cursor: pointer;
-}
-
-.card img {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;   /* impede deformação */
-    background-color: white;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-
-.card p {
-    font-size: 18px;
-    margin-top: 8px;
-}
-
-#display {
-    margin-top: 40px;
-}
-
-#display img {
-    width: 450px;
-    max-height: 450px;
-    object-fit: contain;
-    border-radius: 20px;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-#display img:hover {
-    transform: scale(1.05);
-}
-
-#display h2 {
-    font-size: 40px;
-    margin-top: 20px;
-}
-
-/* RESPONSIVIDADE */
-
-@media (max-width: 768px) {
-
-    .menu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu button {
-        width: 90%;
-        height: 90px;
-        font-size: 18px;
-    }
-
-    .card {
-        width: 45%;
-    }
-
-    .card img {
-        width: 100px;
-        height: 100px;
-    }
-
-    #display img {
-        width: 90%;
-        max-width: 300px;
-    }
-
-    #display h2 {
-        font-size: 28px;
-    }
-}
-
-
-
-/* Contador (contar até 10) styles */
-#contadorArea {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#contadorArea img,
-#contadorImagem {
-    width: 500px; /* diminuir tamanho da imagem aqui */
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-
-#contadorTexto {
-    font-size: 26px; /* tamanho do texto abaixo da imagem */
-    margin-top: 12px;
-    color: #333;
-}
-
-#contadorButtons {
-    display: flex;
-    flex-direction: column; /* empilha os botões verticalmente */
-    gap: 10px;
-    margin-top: 12px;
-    align-items: center;
-}
-
-#btnProximo {
-    /* Destaque visual para o botão Próximo, mas reutiliza estilos existentes */
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-#btnReiniciar {
-    background-color: #FF9800;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-/* botão Voltar usa a classe .voltar já definida acima */
-
-.voltar {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    background-color: #2196F3;
-    color: white;
-    cursor: pointer;
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<h1>COMUNICAÇÃO ODONTOLÓGICA</h1>
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo">PECS</div>
+        <div class="brand">
+            <h1>Comunicação Odontológica</h1>
+            <p class="subtitle">Material de apoio visual para crianças e profissionais</p>
+        </div>
+    </div>
+</header>
 
 <div class="menu" id="menu">
     <button onclick="mostrarTela('emocoes')">😊 Emoções</button>
@@ -254,10 +73,71 @@ h1 {
         <p>Escovar</p>
     </div>
 
-    <div class="card" onclick="mostrarMensagem('Cadeira odontológica', 'imagens/cadeira.png')">
-        <img src="imagens/cadeira.png">
-        <p>Cadeira</p>
+    <div class="card" onclick="mostrarMensagem('Profilaxia', 'imagens/profilaxia.png')">
+        <img src="imagens/profilaxia.png">
+        <p>Profilaxia</p>
     </div> 
+
+    <div class="card" onclick="mostrarMensagem('Lavando o dente', 'imagens/lavando_dente.png')">
+        <img src="imagens/lavando_dente.png">
+        <p>Lavando o dente</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Fluor', 'imagens/fluor.png')">
+        <img src="imagens/fluor.png">
+        <p>Fluor</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Anestesia', 'imagens/anestesia.png')">
+        <img src="imagens/anestesia.png">
+        <p>Anestesia</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Isolamento', 'imagens/isolamento.png')">
+        <img src="imagens/isolamento.png">
+        <p>Isolamento</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Removendo Carie', 'imagens/removendo_carie.png')">
+        <img src="imagens/removendo_carie.png">
+        <p>Removendo Carie</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Passando shampoo', 'imagens/passando_shampoo.png')">
+        <img src="imagens/passando_shampoo.png">
+        <p>Passando shampoo</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Passando cola', 'imagens/passando_cola.png')">
+        <img src="imagens/passando_cola.png">
+        <p>Passando cola</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Ar', 'imagens/ar.png')">
+        <img src="imagens/ar.png">
+        <p>Ar</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Luz', 'imagens/luz.png')">
+        <img src="imagens/luz.png">
+        <p>Luz</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Massinha', 'imagens/massinha.png')">
+        <img src="imagens/massinha.png">
+        <p>Massinha</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Dente Feliz', 'imagens/dente_feliz.png')">
+        <img src="imagens/dente_feliz.png">
+        <p>Dente Feliz</p>
+    </div> 
+
+    <div class="card" onclick="mostrarMensagem('Canal', 'imagens/canal.png')">
+        <img src="imagens/canal.png">
+        <p>Canal</p>
+    </div> 
+
 
     <br>
     <button class="voltar" onclick="voltar()">Voltar</button>
@@ -265,6 +145,11 @@ h1 {
 
 <!-- INSTRUMENTOS -->
 <div class="grid" id="instrumentos">
+
+    <div class="card" onclick="mostrarMensagem('Cadeira odontológica', 'imagens/cadeira.png')">
+        <img src="imagens/cadeira.png">
+        <p>Cadeira</p>
+    </div> 
 
     <div class="card" onclick="mostrarMensagem('Fio dental', 'imagens/fio_dental.png')">
         <img src="imagens/fio_dental.png">

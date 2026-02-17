@@ -1,0 +1,115 @@
+:root{
+  --bg-1: #e6f2ff;
+  --bg-2: #f7fbff;
+  --accent: #4a90e2;
+  --accent-2: #6fb3ff;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,Segoe UI,Arial,sans-serif;
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color:#102a43;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.site-header{
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color: white;
+  padding:20px 16px;
+  box-shadow: 0 6px 24px rgba(74,144,226,0.18);
+}
+.header-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.logo{
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.14);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:1px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08) inset;
+}
+.brand h1{margin:0;font-size:20px;font-weight:700}
+.brand .subtitle{margin:4px 0 0;color:var(--glass);font-size:13px}
+
+.container{max-width:1100px;margin:28px auto;padding:0 16px}
+
+h1{display:none}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:35px;
+  margin-top:22px;
+  padding:14px 0;
+}
+
+.menu button{
+  width:92%;
+  max-width:560px;
+  padding:32px 38px;
+  border-radius:16px;
+  border:none;
+  background:linear-gradient(135deg,var(--card-bg),#f6fbff);
+  box-shadow: 0 14px 40px rgba(16,42,67,0.10);
+  cursor:pointer;
+  font-size:30px;
+  font-weight:800;
+  color:#08324b;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:16px;
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.menu button:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,42,67,0.12)}
+
+.menu button emoji,.menu button img{width:34px;height:34px}
+
+.grid{display:none;margin-top:18px}
+
+.grid .card{display:inline-block;margin:12px;cursor:pointer;text-align:center}
+.card img{width:200px;height:200px;object-fit:contain;background:var(--card-bg);padding:12px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+.card p{margin:8px 0 0;color:var(--muted);font-weight:600}
+
+#display{margin-top:30px;display:flex;flex-direction:column;align-items:center}
+#display img{width:520px;max-width:95%;height:auto;border-radius:18px;background:var(--card-bg);padding:20px;box-shadow:0 22px 50px rgba(2,6,23,0.08);transition:transform .25s ease}
+#display h2{margin-top:18px;font-size:28px;color:#08324b}
+
+#contadorArea{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:12px}
+#contadorImagem{width:420px;max-width:86%;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+#contadorTexto{font-size:22px;color:#16324a}
+
+#contadorButtons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.voltar, #btnProximo, #btnReiniciar{padding:10px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.voltar{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+#btnProximo{background:#28a745;color:white}
+#btnReiniciar{background:#ff9800;color:white}
+
+@media (max-width:720px){
+  .header-inner{gap:12px}
+  .logo{width:54px;height:54px;font-size:18px}
+  .brand h1{font-size:16px}
+  .menu button{padding:16px;font-size:16px}
+  .card img{width:120px;height:120px}
+  #display img{width:320px}
+}
+
+/* small helpers */
+.hidden{display:none}
