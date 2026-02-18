@@ -233,6 +233,15 @@
 
 </div>
 
+<!-- TELA VISUALIZACAO -->
+<div id="visualizacao" class="hidden">
+    <div id="visualizacaoConteudo">
+        <img id="visualizacaoImagem">
+        <h2 id="visualizacaoTexto"></h2>
+        <button class="voltar" onclick="fecharVisualizacao()">Voltar</button>
+    </div>
+</div>
+
 
 <div id="display"></div>
 
@@ -240,9 +249,25 @@
 <script>
 
 function mostrarMensagem(texto, imagem) {
-    document.getElementById("display").innerHTML =
-        "<img src='" + imagem + "'><h2>" + texto + "</h2>";
+
+    // Esconde menu e grids
+    document.getElementById("menu").style.display = "none";
+    document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
+
+    // Preenche imagem e texto
+    document.getElementById("visualizacaoImagem").src = imagem;
+    document.getElementById("visualizacaoTexto").innerText = texto;
+
+    // Mostra nova tela
+    document.getElementById("visualizacao").classList.remove("hidden");
 }
+
+function fecharVisualizacao() {
+    document.getElementById("visualizacao").classList.add("hidden");
+    document.getElementById("menu").style.display = "flex";
+}
+
+
 
 let numeroAtual = 1;
 
