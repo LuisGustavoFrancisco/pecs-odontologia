@@ -10,8 +10,6 @@
 
 <body>
 
-let telaAnterior = "";
-
 <header class="site-header">
     <div class="header-inner">
         <div class="logo">PECS</div>
@@ -255,6 +253,8 @@ let telaAnterior = "";
 
 <script>
 
+let telaAnterior = "";
+
 function mostrarMensagem(texto, imagem) {
 
     document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
@@ -264,7 +264,6 @@ function mostrarMensagem(texto, imagem) {
 
     document.getElementById("visualizacao").classList.remove("hidden");
 }
-
 
 function fecharVisualizacao() {
     document.getElementById("visualizacao").classList.add("hidden");
