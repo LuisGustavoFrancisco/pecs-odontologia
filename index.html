@@ -10,6 +10,8 @@
 
 <body>
 
+let telaAnterior = "";
+
 <header class="site-header">
     <div class="header-inner">
         <div class="logo">PECS</div>
@@ -238,9 +240,14 @@
     <div id="visualizacaoConteudo">
         <img id="visualizacaoImagem">
         <h2 id="visualizacaoTexto"></h2>
-        <button class="voltar" onclick="fecharVisualizacao()">Voltar</button>
+
+        <div style="margin-top:20px; display:flex; gap:12px; justify-content:center;">
+            <button class="voltar" onclick="voltarTelaAnterior()">⬅ Voltar</button>
+            <button class="voltar" onclick="voltarInicio()">🏠 Início</button>
+        </div>
     </div>
 </div>
+
 
 
 <div id="display"></div>
@@ -250,28 +257,39 @@
 
 function mostrarMensagem(texto, imagem) {
 
-    // Esconde menu e grids
-    document.getElementById("menu").style.display = "none";
     document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
 
-    // Preenche imagem e texto
     document.getElementById("visualizacaoImagem").src = imagem;
     document.getElementById("visualizacaoTexto").innerText = texto;
 
-    // Mostra nova tela
     document.getElementById("visualizacao").classList.remove("hidden");
 }
+
 
 function fecharVisualizacao() {
     document.getElementById("visualizacao").classList.add("hidden");
     document.getElementById("menu").style.display = "flex";
 }
 
+function voltarTelaAnterior() {
+    document.getElementById("visualizacao").classList.add("hidden");
+    document.getElementById(telaAnterior).style.display = "block";
+}
+
+function voltarInicio() {
+    document.getElementById("visualizacao").classList.add("hidden");
+    document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
+    document.getElementById("menu").style.display = "flex";
+}
+
+
 
 
 let numeroAtual = 1;
 
 function mostrarTela(tela) {
+    telaAnterior = tela;
+
     document.getElementById("menu").style.display = "none";
     document.querySelectorAll(".grid").forEach(el => el.style.display = "none");
     document.getElementById(tela).style.display = "block";
@@ -282,6 +300,7 @@ function mostrarTela(tela) {
         atualizarContador();
     }
 }
+
 
 function atualizarContador() {
     const imgEl = document.getElementById("contadorImagem");
